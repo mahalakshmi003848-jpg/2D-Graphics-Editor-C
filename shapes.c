@@ -58,3 +58,21 @@ void drawTriangle(int x, int y, int height)
         }
     }
 }
+void drawCircle(int cx, int cy, int radius)
+{
+    int x, y;
+
+    for(y = 0; y < ROWS; y++)
+    {
+        for(x = 0; x < COLS; x++)
+        {
+            int dx = x - cx;
+            int dy = y - cy;
+
+            if(dx * dx + dy * dy <= radius * radius)
+            {
+                canvas[y][x] = '*';
+            }
+        }
+    }
+}

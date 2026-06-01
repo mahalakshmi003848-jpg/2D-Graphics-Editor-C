@@ -12,6 +12,8 @@ int main()
 
     int triangleHeight;
 
+    int radius;
+
     initCanvas();
 
     while(1)
@@ -21,8 +23,9 @@ int main()
         printf("1. Draw Rectangle\n");
         printf("2. Draw Line\n");
         printf("3. Draw Triangle\n");
-        printf("4. Display Canvas\n");
-        printf("5. Exit\n");
+        printf("4. Draw Circle\n");
+        printf("5. Display Canvas\n");
+        printf("6. Exit\n");
 
         printf("Enter choice: ");
         scanf("%d", &choice);
@@ -88,11 +91,28 @@ int main()
 
             case 4:
 
-                displayCanvas();
+                printf("Enter center x: ");
+                scanf("%d", &x);
+
+                printf("Enter center y: ");
+                scanf("%d", &y);
+
+                printf("Enter radius: ");
+                scanf("%d", &radius);
+
+                drawCircle(x, y, radius);
+
+                printf("Circle Drawn!\n");
 
                 break;
 
             case 5:
+
+                displayCanvas();
+
+                break;
+
+            case 6:
 
                 return 0;
 
