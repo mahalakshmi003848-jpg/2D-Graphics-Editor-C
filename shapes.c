@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "canvas.h"
 
 void drawRectangle(int x, int y, int width, int height)
@@ -14,5 +15,34 @@ void drawRectangle(int x, int y, int width, int height)
                 canvas[i][j] = '*';
             }
         }
+    }
+}
+void drawLine(int x1, int y1, int x2, int y2)
+{
+    int i;
+
+    /* Horizontal Line */
+
+    if(y1 == y2)
+    {
+        for(i = x1; i <= x2; i++)
+        {
+            canvas[y1][i] = '*';
+        }
+    }
+
+    /* Vertical Line */
+
+    else if(x1 == x2)
+    {
+        for(i = y1; i <= y2; i++)
+        {
+            canvas[i][x1] = '*';
+        }
+    }
+
+    else
+    {
+        printf("Only horizontal and vertical lines supported!\n");
     }
 }

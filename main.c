@@ -5,16 +5,21 @@
 int main()
 {
     int choice;
+
     int x, y, width, height;
+
+    int x1, y1, x2, y2;
 
     initCanvas();
 
     while(1)
     {
         printf("\n===== 2D GRAPHICS EDITOR =====\n");
+
         printf("1. Draw Rectangle\n");
-        printf("2. Display Canvas\n");
-        printf("3. Exit\n");
+        printf("2. Draw Line\n");
+        printf("3. Display Canvas\n");
+        printf("4. Exit\n");
 
         printf("Enter choice: ");
         scanf("%d", &choice);
@@ -43,11 +48,31 @@ int main()
 
             case 2:
 
-                displayCanvas();
+                printf("Enter x1: ");
+                scanf("%d", &x1);
+
+                printf("Enter y1: ");
+                scanf("%d", &y1);
+
+                printf("Enter x2: ");
+                scanf("%d", &x2);
+
+                printf("Enter y2: ");
+                scanf("%d", &y2);
+
+                drawLine(x1, y1, x2, y2);
+
+                printf("Line Drawn!\n");
 
                 break;
 
             case 3:
+
+                displayCanvas();
+
+                break;
+
+            case 4:
 
                 return 0;
 
