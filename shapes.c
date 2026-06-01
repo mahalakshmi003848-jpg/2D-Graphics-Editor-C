@@ -46,3 +46,15 @@ void drawLine(int x1, int y1, int x2, int y2)
         printf("Only horizontal and vertical lines supported!\n");
     }
 }
+void drawTriangle(int x, int y, int height)
+{
+    int i, j;
+
+    for(i = 0; i < height; i++)
+    {
+        for(j = 0; j <= i; j++)
+        {
+            canvas[y + i][x + j] = '*';
+        }
+    }
+}

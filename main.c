@@ -10,6 +10,8 @@ int main()
 
     int x1, y1, x2, y2;
 
+    int triangleHeight;
+
     initCanvas();
 
     while(1)
@@ -18,8 +20,9 @@ int main()
 
         printf("1. Draw Rectangle\n");
         printf("2. Draw Line\n");
-        printf("3. Display Canvas\n");
-        printf("4. Exit\n");
+        printf("3. Draw Triangle\n");
+        printf("4. Display Canvas\n");
+        printf("5. Exit\n");
 
         printf("Enter choice: ");
         scanf("%d", &choice);
@@ -68,11 +71,28 @@ int main()
 
             case 3:
 
-                displayCanvas();
+                printf("Enter x position: ");
+                scanf("%d", &x);
+
+                printf("Enter y position: ");
+                scanf("%d", &y);
+
+                printf("Enter triangle height: ");
+                scanf("%d", &triangleHeight);
+
+                drawTriangle(x, y, triangleHeight);
+
+                printf("Triangle Drawn!\n");
 
                 break;
 
             case 4:
+
+                displayCanvas();
+
+                break;
+
+            case 5:
 
                 return 0;
 
