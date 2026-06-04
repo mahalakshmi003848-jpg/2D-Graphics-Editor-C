@@ -30,3 +30,15 @@ void displayCanvas()
         printf("\n");
     }
 }
+void clearCanvas()
+{
+    int i, j;
+
+    for(i = 0; i < ROWS; i++)
+    {
+        for(j = 0; j < COLS; j++)
+        {
+            canvas[i][j] = '_';
+        }
+    }
+}

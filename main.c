@@ -13,7 +13,8 @@ int main()
     int triangleHeight;
 
     int radius;
-
+int deleteID;
+int i;
     initCanvas();
 
     while(1)
@@ -21,11 +22,12 @@ int main()
         printf("\n===== 2D GRAPHICS EDITOR =====\n");
 
         printf("1. Draw Rectangle\n");
-        printf("2. Draw Line\n");
-        printf("3. Draw Triangle\n");
-        printf("4. Draw Circle\n");
-        printf("5. Display Canvas\n");
-        printf("6. Exit\n");
+printf("2. Draw Line\n");
+printf("3. Draw Triangle\n");
+printf("4. Draw Circle\n");
+printf("5. Display Canvas\n");
+printf("6. Delete Shape\n");
+printf("7. Exit\n");
 
         printf("Enter choice: ");
         scanf("%d", &choice);
@@ -75,7 +77,15 @@ shapeCount++;
                 scanf("%d", &y2);
 
                 drawLine(x1, y1, x2, y2);
+shapes[shapeCount].type = 2;
 
+shapes[shapeCount].x = x1;
+shapes[shapeCount].y = y1;
+
+shapes[shapeCount].x2 = x2;
+shapes[shapeCount].y2 = y2;
+
+shapeCount++;
                 printf("Line Drawn!\n");
 
                 break;
@@ -92,7 +102,14 @@ shapeCount++;
                 scanf("%d", &triangleHeight);
 
                 drawTriangle(x, y, triangleHeight);
+shapes[shapeCount].type = 3;
 
+shapes[shapeCount].x = x;
+shapes[shapeCount].y = y;
+
+shapes[shapeCount].height = triangleHeight;
+
+shapeCount++;
                 printf("Triangle Drawn!\n");
 
                 break;
@@ -109,7 +126,14 @@ shapeCount++;
                 scanf("%d", &radius);
 
                 drawCircle(x, y, radius);
+shapes[shapeCount].type = 4;
 
+shapes[shapeCount].x = x;
+shapes[shapeCount].y = y;
+
+shapes[shapeCount].radius = radius;
+
+shapeCount++;
                 printf("Circle Drawn!\n");
 
                 break;
@@ -122,8 +146,68 @@ shapeCount++;
 
             case 6:
 
-                return 0;
+    printf("Enter Shape ID to delete: ");
+    scanf("%d", &deleteID);
 
+    if(deleteID >= 0 && deleteID < shapeCount)
+    {
+        shapes[deleteID].type = 0;
+
+        clearCanvas();
+
+        for(i = 0; i < shapeCount; i++)
+        {
+            if(shapes[i].type == 1)
+            {
+                drawRectangle(
+                    shapes[i].x,
+                    shapes[i].y,
+                    shapes[i].width,
+                    shapes[i].height
+                );
+            }
+
+            else if(shapes[i].type == 2)
+            {
+                drawLine(
+                    shapes[i].x,
+                    shapes[i].y,
+                    shapes[i].x2,
+                    shapes[i].y2
+                );
+            }
+
+            else if(shapes[i].type == 3)
+            {
+                drawTriangle(
+                    shapes[i].x,
+                    shapes[i].y,
+                    shapes[i].height
+                );
+            }
+
+            else if(shapes[i].type == 4)
+            {
+                drawCircle(
+                    shapes[i].x,
+                    shapes[i].y,
+                    shapes[i].radius
+                );
+            }
+        }
+
+        printf("Shape Deleted!\n");
+    }
+
+    else
+    {
+        printf("Invalid Shape ID!\n");
+    }
+
+    break;
+case 7:
+
+    return 0;
             default:
 
                 printf("Invalid Choice!\n");
