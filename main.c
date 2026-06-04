@@ -47,7 +47,15 @@ int main()
                 scanf("%d", &height);
 
                 drawRectangle(x, y, width, height);
+                shapes[shapeCount].type = 1;
 
+shapes[shapeCount].x = x;
+shapes[shapeCount].y = y;
+
+shapes[shapeCount].width = width;
+shapes[shapeCount].height = height;
+
+shapeCount++;
                 printf("Rectangle Drawn!\n");
 
                 break;

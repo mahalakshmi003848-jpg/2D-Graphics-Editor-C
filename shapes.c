@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "canvas.h"
-
+Shape shapes[100];
+int shapeCount = 0;
 void drawRectangle(int x, int y, int width, int height)
 {
     int i, j;
